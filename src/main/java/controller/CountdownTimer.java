@@ -32,21 +32,7 @@ public class CountdownTimer {
         timeline = new Timeline(new KeyFrame(Duration.seconds(1), e -> {
             currentTime--;
             if (currentTime <= 0) {
-                cycleCount++;
-                if (isWorkingTime) {
-                    if (cycleCount >= CYCLES_BEFORE_LONG_BREAK) {
-                        cycleCount = 0;
-                        currentTime = LONG_BREAK_TIME * 60;
-                        listener.onTimerUpdate(formatTime(currentTime));
-                    } else {
-                        currentTime = SHORT_BREAK_TIME * 60;
-                        listener.onTimerUpdate(formatTime(currentTime));
-                    }
-                } else {
-                    currentTime = WORK_TIME * 60;
-                    listener.onTimerUpdate(formatTime(currentTime));
-                }
-                isWorkingTime = !isWorkingTime;
+                goToNextStage();
             } else {
                 listener.onTimerUpdate(formatTime(currentTime));
             }
@@ -54,6 +40,29 @@ public class CountdownTimer {
 
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
+    }
+
+    protected void goToNextStage() {
+        cycleCount++;
+        if (isWorkingTime) {
+            if (cycleCount >= CYCLES_BEFORE_LONG_BREAK) {
+                cycleCount = 0;
+                currentTime = LONG_BREAK_TIME * 60;
+                listener.onTimerUpdate(formatTime(currentTime));
+            } else {
+                currentTime = SHORT_BREAK_TIME * 60;
+                listener.onTimerUpdate(formatTime(currentTime));
+            }
+        } else {
+            currentTime = WORK_TIME * 60;
+            listener.onTimerUpdate(formatTime(currentTime));
+        }
+        isWorkingTime = !isWorkingTime;
+    }
+
+    public void restartStage() {
+        timeline.stop();
+        start();
     }
 
     private String formatTime(int timeInSeconds) {
