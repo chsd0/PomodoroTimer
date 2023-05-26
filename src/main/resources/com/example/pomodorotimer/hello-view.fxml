@@ -93,6 +93,8 @@
                         <Font name="Source Sans Pro Semibold" size="53.0" />
                     </font>
                 </Label>
+            <Button fx:id="nextButton" layoutX="232.0" layoutY="280.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="82.0" onMouseClicked="#handleNextButton" text="Скип" />
+            <Button fx:id="restartButton" layoutX="49.0" layoutY="281.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="82.0" onMouseClicked="#handleRestartButton" text="По новой" />
             </children>
         </AnchorPane>
     </children>
