@@ -20,7 +20,7 @@ public class HelloApplication extends Application {
         TimerController timerController = fxmlLoader.getController();
         Scene scene = new Scene(root);
         stage.setTitle("Pomodoro Timer");
-        stage.getIcons().add(new Image("/path/to/stackoverflow.jpg"));
+        //stage.getIcons().add(new Image("/path/to/stackoverflow.jpg"));
         stage.setScene(scene);
         stage.show();
 

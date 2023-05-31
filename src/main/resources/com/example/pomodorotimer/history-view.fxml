@@ -38,16 +38,18 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="365.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TimerController">
     <children>
         <AnchorPane fx:id="pane" maxHeight="-1.0" maxWidth="-1.0" prefHeight="357.0" prefWidth="350.0" style="-fx-stroke: purple;" styleClass="pane" stylesheets="@style.css" VBox.vgrow="ALWAYS">
             <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dc514e" height="43.0" layoutY="322.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="350.0" />
-            <Button fx:id="settingsButton" layoutX="274.0" layoutY="332.0" mnemonicParsing="false" text="Button" />
-            <Button fx:id="historyButton" layoutX="28.0" layoutY="332.0" mnemonicParsing="false" text="Button" />
-            <Button fx:id="mainButton" layoutX="149.0" layoutY="332.0" mnemonicParsing="false" text="Button" />
-            <TableView fixedCellSize="2.0" layoutX="75.0" layoutY="54.0" prefHeight="200.0" prefWidth="200.0">
+            <Button fx:id="settingsButton" layoutX="265.0" layoutY="329.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" styleClass="settings-button" />
+            <Button fx:id="historyButton" layoutX="54.0" layoutY="329.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" styleClass="history-button" />
+            <Button fx:id="mainButton" layoutX="159.0" layoutY="329.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" styleClass="main-button" />
+            <TableView fixedCellSize="2.0" layoutX="19.0" layoutY="79.0" prefHeight="226.0" prefWidth="313.0">
               <columns>
                 <TableColumn prefWidth="75.0" text="C1" />
                 <TableColumn prefWidth="75.0" text="C2" />
@@ -56,6 +58,11 @@
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>
             </TableView>
+            <Text layoutX="14.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="История работы">
+               <font>
+                  <Font size="40.0" />
+               </font>
+            </Text>
             </children>
         </AnchorPane>
     </children>

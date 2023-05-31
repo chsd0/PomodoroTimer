@@ -45,9 +45,9 @@
         <AnchorPane fx:id="pane" maxHeight="-1.0" maxWidth="-1.0" prefHeight="357.0" prefWidth="350.0" style="-fx-stroke: purple;" styleClass="pane" stylesheets="@style.css" VBox.vgrow="ALWAYS">
             <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dc514e" height="43.0" layoutY="322.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="350.0" />
-            <Button fx:id="settingsButton" layoutX="274.0" layoutY="332.0" mnemonicParsing="false" text="Button" />
-            <Button fx:id="historyButton" layoutX="28.0" layoutY="332.0" mnemonicParsing="false" text="Button" />
-            <Button fx:id="mainButton" layoutX="149.0" layoutY="332.0" mnemonicParsing="false" text="Button" />
+            <Button fx:id="settingsButton" layoutX="265.0" layoutY="329.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" styleClass="settings-button" />
+            <Button fx:id="historyButton" layoutX="54.0" layoutY="329.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" styleClass="history-button" />
+            <Button fx:id="mainButton" layoutX="159.0" layoutY="329.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" styleClass="main-button" />
             <TextField layoutX="28.0" layoutY="132.0" prefHeight="30.0" prefWidth="60.0" />
             <Button layoutX="88.0" layoutY="132.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="15.0" prefWidth="30.0" text="▲">
                <font>
@@ -84,6 +84,11 @@
             <Text layoutX="28.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Помодоро" textAlignment="CENTER" wrappingWidth="90.0" />
             <Text layoutX="130.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Короткий перерыв" textAlignment="CENTER" wrappingWidth="90.0" />
             <Text layoutX="234.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Длинный перерыв" textAlignment="CENTER" wrappingWidth="90.0" />
+            <Text layoutX="22.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Настройки">
+               <font>
+                  <Font size="40.0" />
+               </font>
+            </Text>
             </children>
         </AnchorPane>
     </children>
