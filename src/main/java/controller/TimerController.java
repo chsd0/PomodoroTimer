@@ -91,6 +91,8 @@ public class TimerController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+
     }
 
     @FXML
@@ -105,6 +107,9 @@ public class TimerController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        pomodoroField.setText(String.valueOf(CountdownTimer.getWorkTime()));
+        shortBreakField.setText(String.valueOf(CountdownTimer.getShortBreakTime()));
+        longBreakField.setText(String.valueOf(CountdownTimer.getLongBreakTime()));
     }
 
     @FXML
@@ -122,7 +127,7 @@ public class TimerController {
     }
 
     public void onPomodoroPlusClicked(MouseEvent mouseEvent) {
-        if (CountdownTimer.getWorkTime()<98) {
+        if (CountdownTimer.getWorkTime()<99) {
             CountdownTimer.setWorkTime(CountdownTimer.getWorkTime() + 1);
             pomodoroField.setText(String.valueOf(CountdownTimer.getWorkTime()));
         }
@@ -136,7 +141,7 @@ public class TimerController {
     }
 
     public void onLongBreakPlusClicked(MouseEvent mouseEvent) {
-        if (CountdownTimer.getLongBreakTime() < 98) {
+        if (CountdownTimer.getLongBreakTime() < 99) {
             CountdownTimer.setLongBreakTime(CountdownTimer.getLongBreakTime() + 1);
             longBreakField.setText(String.valueOf(CountdownTimer.getLongBreakTime()));
         }
@@ -150,7 +155,7 @@ public class TimerController {
     }
 
     public void onShortBreakPlusClicked(MouseEvent mouseEvent) {
-        if (CountdownTimer.getShortBreakTime() < 98) {
+        if (CountdownTimer.getShortBreakTime() < 99) {
             CountdownTimer.setShortBreakTime(CountdownTimer.getShortBreakTime() + 1);
             shortBreakField.setText(String.valueOf(CountdownTimer.getShortBreakTime()));
         }
