@@ -54,7 +54,6 @@ public class TimerController {
 
     @FXML
     private void handleNextButton() {
-        countdownTimer.stop();
         countdownTimer.goToNextStage();
     }
 

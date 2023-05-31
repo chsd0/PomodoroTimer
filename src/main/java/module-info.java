@@ -1,6 +1,7 @@
 module com.example.pomodorotimer {
     requires javafx.controls;
     requires javafx.fxml;
+    requires javafx.media;
 
 
     opens com.example.pomodorotimer to javafx.fxml;
