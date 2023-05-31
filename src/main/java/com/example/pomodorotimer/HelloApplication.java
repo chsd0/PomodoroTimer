@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -19,6 +20,7 @@ public class HelloApplication extends Application {
         TimerController timerController = fxmlLoader.getController();
         Scene scene = new Scene(root);
         stage.setTitle("Pomodoro Timer");
+        stage.getIcons().add(new Image("/path/to/stackoverflow.jpg"));
         stage.setScene(scene);
         stage.show();
 
