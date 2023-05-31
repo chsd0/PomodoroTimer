@@ -17,6 +17,8 @@ public class TimerController {
     boolean flag = true;
     private CountdownTimer countdownTimer;
 
+    Data data = new Data();
+
     public void initialize() {
         countdownTimer = new CountdownTimer(this::updateTimerLabel);
         startButton.setText("Start");
@@ -39,6 +41,7 @@ public class TimerController {
             countdownTimer.resume();
             startButton.setText("Stop");
         }
+
     }
 
     @FXML
@@ -49,6 +52,7 @@ public class TimerController {
     @FXML
     private void handleRestartButton() {
         countdownTimer.restartStage();
+        startButton.setText("Stop");
     }
 
     private void updateTimerLabel(String time) {

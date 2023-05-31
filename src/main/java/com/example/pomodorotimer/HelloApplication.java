@@ -1,19 +1,21 @@
 package com.example.pomodorotimer;
 
+import controller.Data;
 import controller.TimerController;
 import javafx.application.Application;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.Timer;
+
 
 public class HelloApplication extends Application {
-    @Override
+
     public void start(Stage stage) throws IOException {
+        Button b = new Button("lox");
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
         Parent root = fxmlLoader.load();
         TimerController timerController = fxmlLoader.getController();
