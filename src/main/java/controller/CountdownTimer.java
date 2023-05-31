@@ -8,9 +8,9 @@ public class CountdownTimer {
     private static final int WORK_TIME = 25; // Время работы в минутах
     private static final int SHORT_BREAK_TIME = 5; // Время короткого перерыва в минутах
     private static final int LONG_BREAK_TIME = 20; // Время длительного перерыва в минутах
-    private static final int CYCLES_BEFORE_LONG_BREAK = 4; // Количество циклов работы до длительного перерыва
+    private static final int CYCLES_BEFORE_LONG_BREAK = 5; // Количество циклов работы до длительного перерыва
 
-    private int cycleCount = 0;
+    private int cycleCount = 1;
     private int currentTime;
     private boolean isWorkingTime = true;
     private boolean isPaused = false;
@@ -33,7 +33,6 @@ public class CountdownTimer {
             currentTime = SHORT_BREAK_TIME * 60;
             listener.onTimerUpdate(formatTime(currentTime));
         }
-
         timeline = new Timeline(new KeyFrame(Duration.seconds(1), e -> {
             currentTime--;
             if (currentTime <= 0) {
@@ -66,27 +65,49 @@ public class CountdownTimer {
 
     protected void goToNextStage() {
         cycleCount++;
-        if (isWorkingTime) {
-            if (cycleCount >= CYCLES_BEFORE_LONG_BREAK) {
-                cycleCount = 0;
-                currentTime = LONG_BREAK_TIME * 60;
-                listener.onTimerUpdate(formatTime(currentTime));
-            } else {
-                currentTime = SHORT_BREAK_TIME * 60;
-                listener.onTimerUpdate(formatTime(currentTime));
-            }
-        } else {
+        System.out.println(cycleCount);
+        System.out.println(isWorkingTime);
+        if (cycleCount == 1 || cycleCount == 3 || cycleCount == 5 || cycleCount==7){
             currentTime = WORK_TIME * 60;
             listener.onTimerUpdate(formatTime(currentTime));
+        } else if (cycleCount == 8) {
+            cycleCount = 0;
+            currentTime = LONG_BREAK_TIME * 60;
+            listener.onTimerUpdate(formatTime(currentTime));
+        } else {
+            currentTime = SHORT_BREAK_TIME * 60;
+            listener.onTimerUpdate(formatTime(currentTime));
         }
-        isWorkingTime = !isWorkingTime;
+//        if (isWorkingTime) {
+//            if (cycleCount == CYCLES_BEFORE_LONG_BREAK) {
+//                cycleCount = 0;
+//                currentTime = LONG_BREAK_TIME * 60;
+//                listener.onTimerUpdate(formatTime(currentTime));
+//            } else {
+//                currentTime = SHORT_BREAK_TIME * 60;
+//                listener.onTimerUpdate(formatTime(currentTime));
+//            }
+//        } else {
+//            currentTime = WORK_TIME * 60;
+//            listener.onTimerUpdate(formatTime(currentTime));
+//        }
+//        isWorkingTime = !isWorkingTime;
+//        isRunning = false;
+//        start();
     }
 
     public void restartStage() {
-        if (timeline != null) {
-            timeline.stop();
+        if (cycleCount == 1 || cycleCount == 3 || cycleCount == 5 || cycleCount==7){
+            currentTime = WORK_TIME * 60;
+            listener.onTimerUpdate(formatTime(currentTime));
+        } else if (cycleCount == 8) {
+            cycleCount = 0;
+            currentTime = LONG_BREAK_TIME * 60;
+            listener.onTimerUpdate(formatTime(currentTime));
+        } else {
+            currentTime = SHORT_BREAK_TIME * 60;
+            listener.onTimerUpdate(formatTime(currentTime));
         }
-        start();
     }
 
     private String formatTime(int timeInSeconds) {
