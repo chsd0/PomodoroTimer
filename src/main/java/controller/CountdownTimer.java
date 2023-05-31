@@ -1,8 +1,13 @@
 package controller;
 
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.util.Duration;
+
+import java.io.File;
+import java.util.Objects;
 
 public class CountdownTimer {
     private static int WORK_TIME = 25; // Время работы в минутах
@@ -94,6 +99,9 @@ public class CountdownTimer {
     }
 
     protected void goToNextStage() {
+        Media sound = new Media(Objects.requireNonNull(getClass().getResource("/sound.mp3")).toExternalForm());
+        MediaPlayer mediaPlayer = new MediaPlayer(sound);
+        mediaPlayer.play();
         cycleCount++;
         System.out.println(cycleCount);
         System.out.println(isWorkingTime);
@@ -108,22 +116,6 @@ public class CountdownTimer {
             currentTime = SHORT_BREAK_TIME * 60;
             listener.onTimerUpdate(formatTime(currentTime));
         }
-//        if (isWorkingTime) {
-//            if (cycleCount == CYCLES_BEFORE_LONG_BREAK) {
-//                cycleCount = 0;
-//                currentTime = LONG_BREAK_TIME * 60;
-//                listener.onTimerUpdate(formatTime(currentTime));
-//            } else {
-//                currentTime = SHORT_BREAK_TIME * 60;
-//                listener.onTimerUpdate(formatTime(currentTime));
-//            }
-//        } else {
-//            currentTime = WORK_TIME * 60;
-//            listener.onTimerUpdate(formatTime(currentTime));
-//        }
-//        isWorkingTime = !isWorkingTime;
-//        isRunning = false;
-//        start();
     }
 
     public void restartStage() {
