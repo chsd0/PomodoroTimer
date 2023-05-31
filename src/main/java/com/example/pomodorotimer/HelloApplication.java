@@ -22,7 +22,7 @@ public class HelloApplication extends Application {
 
         stage.setTitle("Pomodoro Timer");
         stage.getIcons().add(new Image(getClass().getResourceAsStream("/помидор.png")));
-
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
 
