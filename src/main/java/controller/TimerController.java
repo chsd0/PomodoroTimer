@@ -1,8 +1,14 @@
 package controller;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.StackPane;
+
+import java.io.IOException;
 
 public class TimerController {
     @FXML
@@ -10,20 +16,21 @@ public class TimerController {
     @FXML
     private Button startButton;
     @FXML
-    private Button nextButton;
+    private StackPane stackPane;
+
+    @FXML
+    private Button mainButton;
+
     @FXML
     private Button settingsButton;
+
     @FXML
     private Button historyButton;
-    @FXML
-    private Button restartButton;
     boolean flag = true;
     private CountdownTimer countdownTimer;
 
     public void initialize() {
         countdownTimer = new CountdownTimer(this::updateTimerLabel);
-        startButton.setText("Start");
-        startButton.setDisable(false);
     }
 
 
@@ -59,8 +66,46 @@ public class TimerController {
     private void updateTimerLabel(String time) {
         timerLabel.setText(time);
     }
-
-    public void handleSettingsButton() {
-        settingsButton.setText("SAY GEX");
+    @FXML
+    protected void handleSettingsButton() {
+        // Обработчик события для кнопки settingsButton
+        // Переключение на сцену настроек
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/pomodorotimer/settings-view.fxml"));
+            Parent root = fxmlLoader.load();
+            Scene scene = settingsButton.getScene();
+            scene.setRoot(root);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+
+    @FXML
+    protected void handleHistoryButton() {
+        // Обработчик события для кнопки historyButton
+        // Переключение на сцену истории
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/pomodorotimer/history-view.fxml"));
+            Parent root = fxmlLoader.load();
+            Scene scene = historyButton.getScene();
+            scene.setRoot(root);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    protected void handleMenuButton() {
+        // Обработчик события для кнопки mainButton
+        // Переключение на главную сцену
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/pomodorotimer/hello-view.fxml"));
+            Parent root = fxmlLoader.load();
+            Scene scene = mainButton.getScene();
+            scene.setRoot(root);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
