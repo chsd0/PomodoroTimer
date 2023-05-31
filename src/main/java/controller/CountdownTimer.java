@@ -19,6 +19,7 @@ public class CountdownTimer {
     private int remainingTime;
     private TimerListener listener;
     private Timeline timeline;
+    private Data data = new Data();
 
     public CountdownTimer(TimerListener listener) {
         this.listener = listener;
@@ -36,6 +37,11 @@ public class CountdownTimer {
         timeline = new Timeline(new KeyFrame(Duration.seconds(1), e -> {
             currentTime--;
             if (currentTime <= 0) {
+                if(cycleCount%2==1) {
+                    data.addWorkingCycle();
+                } else {
+                    data.addBreakCycle();
+                }
                 goToNextStage();
             } else {
                 listener.onTimerUpdate(formatTime(currentTime));
