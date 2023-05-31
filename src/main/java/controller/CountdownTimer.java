@@ -53,7 +53,6 @@ public class CountdownTimer {
             timeline.pause();
             isPaused = true;
             isRunning = false;
-            System.out.println("[EQ");
         }
     }
 

@@ -45,15 +45,11 @@ public class TimerController {
     private void handleNextButton() {
         countdownTimer.stop();
         countdownTimer.goToNextStage();
-        startButton.setDisable(false);
-        nextButton.setDisable(false);
     }
 
     @FXML
     private void handleRestartButton() {
         countdownTimer.restartStage();
-        startButton.setDisable(true);
-        nextButton.setDisable(false);
     }
 
     private void updateTimerLabel(String time) {
