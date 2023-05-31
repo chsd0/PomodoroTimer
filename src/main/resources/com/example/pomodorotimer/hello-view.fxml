@@ -41,6 +41,8 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="365.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TimerController">
     <children>
         <AnchorPane fx:id="pane" maxHeight="-1.0" maxWidth="-1.0" prefHeight="357.0" prefWidth="350.0" style="-fx-stroke: purple;" styleClass="pane" stylesheets="@style.css" VBox.vgrow="ALWAYS">
