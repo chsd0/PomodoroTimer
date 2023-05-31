@@ -31,15 +31,23 @@ public class TimerController {
     private Button historyButton;
     boolean flag = true;
     private CountdownTimer countdownTimer;
-
+    @FXML
     public Button shortBreakMinus;
+    @FXML
     public Button shortBreakPlus;
+    @FXML
     public TextField shortBreakField;
+    @FXML
     public Button longBreakMinus;
+    @FXML
     public Button longBreakPlus;
+    @FXML
     public TextField longBreakField;
+    @FXML
     public Button pomodoroMinus;
+    @FXML
     public Button pomodoroPlus;
+    @FXML
     public TextField pomodoroField;
 
 
@@ -88,9 +96,11 @@ public class TimerController {
             Parent root = fxmlLoader.load();
             Scene scene = settingsButton.getScene();
             scene.setRoot(root);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
+
 
 
     }
@@ -107,9 +117,7 @@ public class TimerController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        pomodoroField.setText(String.valueOf(CountdownTimer.getWorkTime()));
-        shortBreakField.setText(String.valueOf(CountdownTimer.getShortBreakTime()));
-        longBreakField.setText(String.valueOf(CountdownTimer.getLongBreakTime()));
+
     }
 
     @FXML
@@ -167,4 +175,14 @@ public class TimerController {
             shortBreakField.setText(String.valueOf(CountdownTimer.getShortBreakTime()));
         }
     }
+
+    public void checkSettingsFields(MouseEvent mouseEvent) {
+
+        pomodoroField.setText(String.valueOf(CountdownTimer.getWorkTime()));
+        shortBreakField.setText(String.valueOf(CountdownTimer.getShortBreakTime()));
+        longBreakField.setText(String.valueOf(CountdownTimer.getLongBreakTime()));
+
+
+    }
+
 }

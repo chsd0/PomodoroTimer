@@ -45,10 +45,9 @@
         <AnchorPane fx:id="pane" maxHeight="-1.0" maxWidth="-1.0" prefHeight="357.0" prefWidth="350.0" style="-fx-stroke: purple;" styleClass="pane" stylesheets="@style.css" VBox.vgrow="ALWAYS">
             <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dc514e" height="43.0" layoutY="322.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="350.0" />
-            <Button fx:id="settingsButton" layoutX="265.0" layoutY="329.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" styleClass="settings-button" />
+            <Button fx:id="settingsButton" layoutX="265.0" layoutY="329.0" mnemonicParsing="false" onMouseEntered="#checkSettingsFields" prefHeight="30.0" prefWidth="30.0" styleClass="settings-button" />
             <Button fx:id="historyButton" layoutX="54.0" layoutY="329.0" mnemonicParsing="false" onMouseClicked="#handleHistoryButton" prefHeight="30.0" prefWidth="30.0" styleClass="history-button" />
             <Button fx:id="mainButton" layoutX="159.0" layoutY="329.0" mnemonicParsing="false" onMouseClicked="#handleMenuButton" prefHeight="30.0" prefWidth="30.0" styleClass="main-button" />
-            <TextField fx:id="pomodoroField" editable="false" layoutX="28.0" layoutY="132.0" prefHeight="30.0" prefWidth="60.0" text="25" />
             <Button fx:id="pomodoroPlus" layoutX="88.0" layoutY="132.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#onPomodoroPlusClicked" prefHeight="15.0" prefWidth="30.0" text="▲">
                <font>
                   <Font size="8.0" />
@@ -59,7 +58,7 @@
                   <Font size="8.0" />
                </font>
             </Button>
-            <TextField fx:id="longBreakField" editable="false" layoutX="234.0" layoutY="132.0" prefHeight="30.0" prefWidth="60.0" text="20" />
+            <TextField fx:id="longBreakField" editable="false" layoutX="234.0" layoutY="132.0" prefHeight="30.0" prefWidth="60.0" />
             <Button fx:id="longBreakPlus" layoutX="294.0" layoutY="132.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#onLongBreakPlusClicked" prefHeight="15.0" prefWidth="30.0" text="▲">
                <font>
                   <Font size="8.0" />
@@ -70,7 +69,7 @@
                   <Font size="8.0" />
                </font>
             </Button>
-            <TextField fx:id="shortBreakField" editable="false" layoutX="130.0" layoutY="132.0" prefHeight="30.0" prefWidth="60.0" text="5" />
+            <TextField fx:id="shortBreakField" editable="false" layoutX="130.0" layoutY="132.0" prefHeight="30.0" prefWidth="60.0" />
             <Button fx:id="shortBreakPlus" layoutX="190.0" layoutY="132.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#onShortBreakPlusClicked" prefHeight="15.0" prefWidth="30.0" text="▲">
                <font>
                   <Font size="8.0" />
@@ -89,6 +88,7 @@
                   <Font size="40.0" />
                </font>
             </Text>
+            <TextField fx:id="pomodoroField" editable="false" layoutX="28.0" layoutY="132.0" prefHeight="30.0" prefWidth="60.0" />
             </children>
         </AnchorPane>
     </children>
