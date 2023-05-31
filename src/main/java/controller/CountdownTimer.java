@@ -5,10 +5,10 @@ import javafx.animation.Timeline;
 import javafx.util.Duration;
 
 public class CountdownTimer {
-    private static final int WORK_TIME = 25; // Время работы в минутах
-    private static final int SHORT_BREAK_TIME = 5; // Время короткого перерыва в минутах
-    private static final int LONG_BREAK_TIME = 20; // Время длительного перерыва в минутах
-    private static final int CYCLES_BEFORE_LONG_BREAK = 5; // Количество циклов работы до длительного перерыва
+    private static int WORK_TIME = 25; // Время работы в минутах
+    private static int SHORT_BREAK_TIME = 5; // Время короткого перерыва в минутах
+    private static int LONG_BREAK_TIME = 20; // Время длительного перерыва в минутах
+    private static int CYCLES_BEFORE_LONG_BREAK = 5; // Количество циклов работы до длительного перерыва
 
     private int cycleCount = 1;
     private int currentTime;
@@ -20,6 +20,30 @@ public class CountdownTimer {
     private TimerListener listener;
     private Timeline timeline;
     private Data data = new Data();
+
+    public static int getWorkTime() {
+        return WORK_TIME;
+    }
+
+    public static void setWorkTime(int workTime) {
+        WORK_TIME = workTime;
+    }
+
+    public static int getShortBreakTime() {
+        return SHORT_BREAK_TIME;
+    }
+
+    public static void setShortBreakTime(int shortBreakTime) {
+        SHORT_BREAK_TIME = shortBreakTime;
+    }
+
+    public static int getLongBreakTime() {
+        return LONG_BREAK_TIME;
+    }
+
+    public static void setLongBreakTime(int longBreakTime) {
+        LONG_BREAK_TIME = longBreakTime;
+    }
 
     public CountdownTimer(TimerListener listener) {
         this.listener = listener;

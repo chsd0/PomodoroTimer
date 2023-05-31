@@ -6,11 +6,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 
 import java.io.IOException;
 
 public class TimerController {
+
     @FXML
     private Label timerLabel;
     @FXML
@@ -28,6 +31,17 @@ public class TimerController {
     private Button historyButton;
     boolean flag = true;
     private CountdownTimer countdownTimer;
+
+    public Button shortBreakMinus;
+    public Button shortBreakPlus;
+    public TextField shortBreakField;
+    public Button longBreakMinus;
+    public Button longBreakPlus;
+    public TextField longBreakField;
+    public Button pomodoroMinus;
+    public Button pomodoroPlus;
+    public TextField pomodoroField;
+
 
     public void initialize() {
         countdownTimer = new CountdownTimer(this::updateTimerLabel);
@@ -108,4 +122,45 @@ public class TimerController {
         }
     }
 
+    public void onPomodoroPlusClicked(MouseEvent mouseEvent) {
+        if (CountdownTimer.getWorkTime()<98) {
+            CountdownTimer.setWorkTime(CountdownTimer.getWorkTime() + 1);
+            pomodoroField.setText(String.valueOf(CountdownTimer.getWorkTime()));
+        }
+    }
+
+    public void onPomodoroMinusClicked(MouseEvent mouseEvent) {
+        if (CountdownTimer.getWorkTime()>1) {
+            CountdownTimer.setWorkTime(CountdownTimer.getWorkTime() - 1);
+            pomodoroField.setText(String.valueOf(CountdownTimer.getWorkTime()));
+        }
+    }
+
+    public void onLongBreakPlusClicked(MouseEvent mouseEvent) {
+        if (CountdownTimer.getLongBreakTime() < 98) {
+            CountdownTimer.setLongBreakTime(CountdownTimer.getLongBreakTime() + 1);
+            longBreakField.setText(String.valueOf(CountdownTimer.getLongBreakTime()));
+        }
+    }
+
+    public void onLongBreakMinusClicked(MouseEvent mouseEvent) {
+            if (CountdownTimer.getLongBreakTime()>1) {
+                CountdownTimer.setLongBreakTime(CountdownTimer.getLongBreakTime() - 1);
+                longBreakField.setText(String.valueOf(CountdownTimer.getLongBreakTime()));
+        }
+    }
+
+    public void onShortBreakPlusClicked(MouseEvent mouseEvent) {
+        if (CountdownTimer.getShortBreakTime() < 98) {
+            CountdownTimer.setShortBreakTime(CountdownTimer.getShortBreakTime() + 1);
+            shortBreakField.setText(String.valueOf(CountdownTimer.getShortBreakTime()));
+        }
+    }
+
+    public void onShortBreakMinusClicked(MouseEvent mouseEvent) {
+        if (CountdownTimer.getShortBreakTime() >1) {
+            CountdownTimer.setShortBreakTime(CountdownTimer.getShortBreakTime() - 1);
+            shortBreakField.setText(String.valueOf(CountdownTimer.getShortBreakTime()));
+        }
+    }
 }
