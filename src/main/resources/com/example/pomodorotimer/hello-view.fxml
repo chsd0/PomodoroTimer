@@ -58,7 +58,7 @@
             <Button fx:id="restartButton" layoutX="14.0" layoutY="244.0" mnemonicParsing="false" onMouseClicked="#handleRestartButton" prefHeight="40.0" prefWidth="40.0" styleClass="second-button" />
             <Line endX="186.60003662109375" endY="-7.62939453125E-6" layoutX="139.0" layoutY="90.0" startX="-114.99998474121094" startY="-7.62939453125E-6" stroke="WHITE" strokeLineCap="ROUND" strokeWidth="2.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dc514e" height="43.0" layoutY="322.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="350.0" />
-            <Button fx:id="settingsButton" layoutX="274.0" layoutY="332.0" mnemonicParsing="false" text="Button" />
+            <Button fx:id="settingsButton" layoutX="274.0" layoutY="332.0" mnemonicParsing="false" text="Button" onMouseClicked="#handleSettingsButton"/>
             <Button fx:id="historyButton" layoutX="28.0" layoutY="332.0" mnemonicParsing="false" text="Button" />
             <Text layoutX="14.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pomodoro" wrappingWidth="303.60003662109375">
                <font>

@@ -18,7 +18,7 @@ public class HelloApplication extends Application {
         Parent root = fxmlLoader.load();
         TimerController timerController = fxmlLoader.getController();
         Scene scene = new Scene(root);
-        stage.setTitle("Trash");
+        stage.setTitle("Pomodoro Timer");
         stage.setScene(scene);
         stage.show();
 

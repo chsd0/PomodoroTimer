@@ -3,6 +3,7 @@ package controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Font;
 
 public class TimerController {
@@ -12,6 +13,10 @@ public class TimerController {
     private Button startButton;
     @FXML
     private Button nextButton;
+    @FXML
+    private Button settingsButton;
+    @FXML
+    private Button historyButton;
     @FXML
     private Button restartButton;
     boolean flag = true;
@@ -29,6 +34,7 @@ public class TimerController {
         if (flag){
             countdownTimer.start();
             flag = false;
+            startButton.setText("Stop");
             return;
         }
         System.out.println(countdownTimer.isRunning());
@@ -58,5 +64,9 @@ public class TimerController {
 
     private void updateTimerLabel(String time) {
         timerLabel.setText(time);
+    }
+
+    public void handleSettingsButton() {
+        settingsButton.setText("SAY GEX");
     }
 }
