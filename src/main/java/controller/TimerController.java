@@ -14,18 +14,31 @@ public class TimerController {
     private Button nextButton;
     @FXML
     private Button restartButton;
-
+    boolean flag = true;
     private CountdownTimer countdownTimer;
 
     public void initialize() {
         countdownTimer = new CountdownTimer(this::updateTimerLabel);
+        startButton.setText("Start");
+        startButton.setDisable(false);
     }
+
 
     @FXML
     private void handleStartButton() {
-        startButton.setDisable(true);
-        nextButton.setDisable(false);
-        countdownTimer.start();
+        if (flag){
+            countdownTimer.start();
+            flag = false;
+            return;
+        }
+        System.out.println(countdownTimer.isRunning());
+        if (countdownTimer.isRunning()) {
+            startButton.setText("Start");
+            countdownTimer.pause();
+        } else {
+            countdownTimer.resume();
+            startButton.setText("Stop");
+        }
     }
 
     @FXML

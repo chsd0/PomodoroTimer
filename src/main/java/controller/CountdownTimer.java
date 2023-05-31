@@ -13,6 +13,10 @@ public class CountdownTimer {
     private int cycleCount = 0;
     private int currentTime;
     private boolean isWorkingTime = true;
+    private boolean isPaused = false;
+    private boolean isRunning = false;
+
+    private int remainingTime;
     private TimerListener listener;
     private Timeline timeline;
 
@@ -21,6 +25,7 @@ public class CountdownTimer {
     }
 
     public void start() {
+        isRunning = true;
         if (isWorkingTime) {
             currentTime = WORK_TIME * 60;
             listener.onTimerUpdate(formatTime(currentTime));
@@ -42,6 +47,24 @@ public class CountdownTimer {
         timeline.play();
     }
 
+    public void pause() {
+        if (timeline != null) {
+            remainingTime = currentTime;
+            timeline.pause();
+            isPaused = true;
+            isRunning = false;
+            System.out.println("[EQ");
+        }
+    }
+
+    public boolean isRunning() {
+        return isRunning;
+    }
+    public void resume() {
+        timeline.play();
+        isRunning = true;
+    }
+
     protected void goToNextStage() {
         cycleCount++;
         if (isWorkingTime) {
@@ -61,7 +84,9 @@ public class CountdownTimer {
     }
 
     public void restartStage() {
-        timeline.stop();
+        if (timeline != null) {
+            timeline.stop();
+        }
         start();
     }
 
