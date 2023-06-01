@@ -1,7 +1,6 @@
 package controller;
 
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
+
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.util.Duration;
@@ -10,10 +9,10 @@ import java.io.File;
 import java.util.Objects;
 
 public class CountdownTimer {
-    private static final int WORK_TIME = 25; // Время работы в минутах
-    private static final int SHORT_BREAK_TIME = 5; // Время короткого перерыва в минутах
-    private static final int LONG_BREAK_TIME = 20; // Время длительного перерыва в минутах
-    private static final int CYCLES_BEFORE_LONG_BREAK = 5; // Количество циклов работы до длительного перерыва
+    private static  int WORK_TIME = 25; // Время работы в минутах
+    private static  int SHORT_BREAK_TIME = 5; // Время короткого перерыва в минутах
+    private static  int LONG_BREAK_TIME = 20; // Время длительного перерыва в минутах
+    private static  int CYCLES_BEFORE_LONG_BREAK = 5; // Количество циклов работы до длительного перерыва
 
     private int cycleCount = 1;
     private int currentTime;
@@ -99,9 +98,7 @@ public class CountdownTimer {
     }
 
     protected void goToNextStage() {
-        Media sound = new Media(Objects.requireNonNull(getClass().getResource("/sound.mp3")).toExternalForm());
-        MediaPlayer mediaPlayer = new MediaPlayer(sound);
-        mediaPlayer.play();
+
         cycleCount++;
         System.out.println(cycleCount);
         System.out.println(isWorkingTime);
