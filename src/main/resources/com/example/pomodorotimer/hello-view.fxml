@@ -43,6 +43,8 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="365.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TimerController">
     <children>
         <AnchorPane fx:id="pane" maxHeight="-1.0" maxWidth="-1.0" prefHeight="357.0" prefWidth="350.0" style="-fx-stroke: purple;" styleClass="pane" stylesheets="@style.css" VBox.vgrow="ALWAYS">
@@ -56,6 +58,8 @@
                         <Font name="Source Sans Pro Semibold" size="96.0" />
                     </font>
                 </Label>
+
+
             <Button fx:id="nextButton" cacheShape="false" layoutX="300.0" layoutY="246.0" mnemonicParsing="false" onMouseClicked="#handleNextButton" prefHeight="35.0" prefWidth="35.0" styleClass="skip-button" />
             <Button fx:id="restartButton" layoutX="14.0" layoutY="244.0" mnemonicParsing="false" onMouseClicked="#handleRestartButton" prefHeight="40.0" prefWidth="40.0" styleClass="repeat-button" />
             <Line endX="186.60003662109375" endY="-7.62939453125E-6" layoutX="139.0" layoutY="90.0" startX="-114.99998474121094" startY="-7.62939453125E-6" stroke="WHITE" strokeLineCap="ROUND" strokeWidth="2.0" />

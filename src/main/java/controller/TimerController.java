@@ -13,7 +13,6 @@ import javafx.scene.layout.StackPane;
 import java.io.IOException;
 
 public class TimerController {
-
     @FXML
     private Label timerLabel;
     @FXML
@@ -76,6 +75,7 @@ public class TimerController {
 
     @FXML
     private void handleNextButton() {
+        countdownTimer.stop();
         countdownTimer.goToNextStage();
     }
 
@@ -96,13 +96,9 @@ public class TimerController {
             Parent root = fxmlLoader.load();
             Scene scene = settingsButton.getScene();
             scene.setRoot(root);
-
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
-
     }
 
     @FXML
@@ -117,7 +113,6 @@ public class TimerController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     @FXML

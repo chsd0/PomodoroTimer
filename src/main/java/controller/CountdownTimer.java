@@ -10,10 +10,10 @@ import java.io.File;
 import java.util.Objects;
 
 public class CountdownTimer {
-    private static int WORK_TIME = 25; // Время работы в минутах
-    private static int SHORT_BREAK_TIME = 5; // Время короткого перерыва в минутах
-    private static int LONG_BREAK_TIME = 20; // Время длительного перерыва в минутах
-    private static int CYCLES_BEFORE_LONG_BREAK = 5; // Количество циклов работы до длительного перерыва
+    private static final int WORK_TIME = 25; // Время работы в минутах
+    private static final int SHORT_BREAK_TIME = 5; // Время короткого перерыва в минутах
+    private static final int LONG_BREAK_TIME = 20; // Время длительного перерыва в минутах
+    private static final int CYCLES_BEFORE_LONG_BREAK = 5; // Количество циклов работы до длительного перерыва
 
     private int cycleCount = 1;
     private int currentTime;
@@ -116,6 +116,22 @@ public class CountdownTimer {
             currentTime = SHORT_BREAK_TIME * 60;
             listener.onTimerUpdate(formatTime(currentTime));
         }
+//        if (isWorkingTime) {
+//            if (cycleCount == CYCLES_BEFORE_LONG_BREAK) {
+//                cycleCount = 0;
+//                currentTime = LONG_BREAK_TIME * 60;
+//                listener.onTimerUpdate(formatTime(currentTime));
+//            } else {
+//                currentTime = SHORT_BREAK_TIME * 60;
+//                listener.onTimerUpdate(formatTime(currentTime));
+//            }
+//        } else {
+//            currentTime = WORK_TIME * 60;
+//            listener.onTimerUpdate(formatTime(currentTime));
+//        }
+//        isWorkingTime = !isWorkingTime;
+//        isRunning = false;
+//        start();
     }
 
     public void restartStage() {
